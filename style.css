@@ -1,3 +1,8 @@
+@font-face {
+    font-family: HindMadurai;
+    src:local("font/HindMadurai-Regular.ttf");
+}
+
 :root {
     --primaryColor: gold;
     --secondaryColor: rgb(72, 72, 72);
@@ -13,6 +18,7 @@
 
 body {
     font-size: 1rem;
+    font-family: 'HindMadurai', sans-serif;
     background-color: var(--secondaryColor);
     color: var(--textColor);
 }
@@ -29,6 +35,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
 }
 
 section {
@@ -40,12 +47,16 @@ section {
     gap: 1rem;
 }
 
+.inputContainer {
+    width: 100%;
+}
+
 label {
     text-align: center;
     margin-bottom: -.5rem;
 }
 
-input {
+.newTaskInput {
     min-height: 40px;
     border-radius: 5px;
 }
@@ -58,4 +69,25 @@ button {
 
 h1 {
     color: var(--primaryColor);
+}
+
+li {
+    line-height: 160%;
+    position: relative;
+    padding: 0 1.5rem;
+}
+
+.trashContainer {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trashImg {
+    height: 16px;
+    width: 16px;
 }
