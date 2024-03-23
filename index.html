@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List de Franck</title>
+    <title>Local-To-Do</title>
     <link href="style.css" rel="stylesheet" />
 </head>
 
@@ -14,19 +14,28 @@
     </header>
     <main>
         <section class="inputContainer">
+            <form action="" method="get">
             <label for="newTaskInput">Rentrez vos tâches à effectuées:</label>
-            <input type="text" name="task" class="newTaskInput" id="newTaskInput">
-            <button type="button" id="addButton">Ajouter</button>
+                <input type="text" name="task" class="newTaskInput" id="newTaskInput">
+                <button type="submit" id="addButton">Ajouter</button>
+            </form>
         </section>
         <section>
             <h2>À faire</h2>
             <ul id="todoList"></ul>
         </section>
         <section>
+            <h2>En cours</h2>
+            <ul id="doingList"></ul>
+        </section>
+        <section>
             <h2>Terminées</h2>
             <ul id="doneList"></ul>
         </section>
     </main>
+    <footer>
+        <h2 class="footerTitle">Made by Franck</h2>
+    </footer>
     <script type="module" src="index.js"></script>
 </body>
 

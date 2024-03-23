@@ -1,8 +1,14 @@
 const todoList = document.getElementById('todoList');
+const doingList = document.getElementById('doingList');
 const doneList = document.getElementById('doneList');
 const addButton = document.getElementById('addButton');
-const todo = [];
-const done = [];
+const inputNewtask = document.getElementById('newTaskInput');
+const li = document.createElement('li');
+const input = document.createElement('input');
+const label = document.createElement('label');
+const todo = {};
+const doing = {};
+const done = {};
 
 const createTrashButton = (parent) => {
     const trashContainer = document.createElement('div');
@@ -15,9 +21,8 @@ const createTrashButton = (parent) => {
 }
 
 const createTaskItem = (newTask) => {
-    const li = document.createElement('li');
-    const input = document.createElement('input');
-    const label = document.createElement('label');
+    todo
+    
     input.type = 'checkbox';
     li.appendChild(input);
     li.appendChild(label);
