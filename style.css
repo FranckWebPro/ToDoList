@@ -5,7 +5,7 @@
 
 :root {
     --primaryColor: lightblue;
-    --secondaryColor: rgb(72, 72, 72);
+    --secondaryColor: rgb(69, 69, 69);
     --textColor: rgb(240, 240, 240);
     --pagePadding: 1.5rem;
 }
@@ -18,7 +18,7 @@
 
 body {
     min-height: 100vh;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-family: 'HindMadurai', sans-serif;
     background-color: var(--secondaryColor);
     color: var(--textColor);
@@ -88,6 +88,7 @@ button {
     height: clamp(40px, 3vw, 50px);
     padding: .5rem 1rem;
     border-radius: 20px;
+    background-color: var(--primaryColor);
 }
 
 h1 {
@@ -95,24 +96,35 @@ h1 {
 }
 
 li {
-    line-height: 160%;
-    position: relative;
+    line-height: 150%;
     padding: 0 1.5rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: .5rem auto .5rem;
+    gap: .5rem;
 }
 
 .trashContainer {
     height: 100%;
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 1rem;
 }
 
 .trashImg {
     height: 16px;
     width: 16px;
+}
+
+.taskCheckBox {
+    height: 70%;
+    width: 20px;
+    transform: translateX(-1rem);
 }
 
 footer {

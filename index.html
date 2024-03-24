@@ -14,19 +14,20 @@
     </header>
     <main>
         <section class="inputContainer">
-            <form action="" method="get">
-            <label for="newTaskInput">Rentrez vos tâches à effectuées:</label>
+            <form action="" method="get" id="form">
+                <label for="newTaskInput">Rentrez vos tâches à effectuées:</label>
                 <input type="text" name="task" class="newTaskInput" id="newTaskInput">
                 <button type="submit" id="addButton">Ajouter</button>
             </form>
         </section>
         <section>
             <h2>À faire</h2>
-            <ul id="todoList"></ul>
-        </section>
-        <section>
-            <h2>En cours</h2>
-            <ul id="doingList"></ul>
+            <ul id="todoList">
+                <li>
+                    <input type="checkbox" class="taskCheckBox">New task
+                    <img src="images/trash.png" alt="" class="trashImg">
+                </li>
+            </ul>
         </section>
         <section>
             <h2>Terminées</h2>

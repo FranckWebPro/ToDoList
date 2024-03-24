@@ -1,14 +1,7 @@
 const todoList = document.getElementById('todoList');
-const doingList = document.getElementById('doingList');
 const doneList = document.getElementById('doneList');
-const addButton = document.getElementById('addButton');
+const form = document.getElementById('form');
 const inputNewtask = document.getElementById('newTaskInput');
-const li = document.createElement('li');
-const input = document.createElement('input');
-const label = document.createElement('label');
-const todo = {};
-const doing = {};
-const done = {};
 
 const createTrashButton = (parent) => {
     const trashContainer = document.createElement('div');
@@ -20,32 +13,48 @@ const createTrashButton = (parent) => {
     return parent.appendChild(trashContainer);
 }
 
-const createTaskItem = (newTask) => {
-    todo
-    
+const createTaskLine = (task) => {
+    const li = document.createElement('li');
+    const input = document.createElement('input');
+    const span = document.createElement('span');
+    input.classList.add('taskCheckBox');
     input.type = 'checkbox';
     li.appendChild(input);
-    li.appendChild(label);
-    createTrashButton(li);
-    label.innerText = newTask;
+    li.appendChild(span);
+    span.innerText = task;
     return li;
 }
 
-const createNewTask = () => {
-    addButton.addEventListener('click', () => {
-        if (document.getElementById('newTaskInput').value !== "") {
-            const newTask = document.getElementById('newTaskInput').value;
-            todo.push(newTask);
+const createTaskItem = () => {
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const newTask = inputNewtask.value
+        if (newTask !== "") {
+            const newLi = createTaskLine(newTask);
+            createTrashButton(newLi);
+            localStorage.setItem("listItem", newTask);
+            todoList.appendChild(newLi);
+            inputNewtask.value = "";
         }
-        todoList.innerHTML = "";
-        for (let task of todo) {
-            createTaskItem(task);
-        }
-
     });
-};
+}
 
-createNewTask();
+createTaskItem();
+
+// const createNewTask = () => {
+//     addButton.addEventListener('click', () => {
+//         if (document.getElementById('newTaskInput').value !== "") {
+//             const newTask = document.getElementById('newTaskInput').value;
+//             todo.push(newTask);
+//         }
+//         todoList.innerHTML = "";
+//         for (let task of todo) {
+//             createTaskItem(task);
+//         }
+
+//     });
+// };
+
 
 
 // const trashButton = document.querySelector('.trashContainer');
