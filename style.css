@@ -53,6 +53,10 @@ section {
     box-shadow: 3px 3px 8px 3px rgb(27, 41, 50);
 }
 
+h1 {
+    color: var(--primaryColor);
+}
+
 .inputContainer {
     width: 100%;
     min-height: 150px;
@@ -91,8 +95,12 @@ button {
     background-color: var(--primaryColor);
 }
 
-h1 {
-    color: var(--primaryColor);
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: .5rem;
 }
 
 li {

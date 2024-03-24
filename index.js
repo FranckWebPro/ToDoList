@@ -21,6 +21,7 @@ const createTaskLine = (task) => {
     input.type = 'checkbox';
     li.appendChild(input);
     li.appendChild(span);
+    createTrashButton(li);
     span.innerText = task;
     return li;
 }
@@ -28,40 +29,29 @@ const createTaskLine = (task) => {
 const createTaskItem = () => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        const newTask = inputNewtask.value
-        if (newTask !== "") {
-            const newLi = createTaskLine(newTask);
-            createTrashButton(newLi);
-            localStorage.setItem("listItem", newTask);
-            todoList.appendChild(newLi);
+        let i = 0;
+        const newTaskValue = inputNewtask.value;
+        if (newTaskValue !== "") {
+            const newTask = createTaskLine(newTaskValue);
+            let itemIndex = localStorage.length + 1;
+            localStorage.setItem(`listItem${itemIndex}`, newTaskValue);
+            todoList.appendChild(newTask);
             inputNewtask.value = "";
         }
     });
 }
 
+const retrieveTaskItem = () => {
+    const itemObject = {};
+    const storageLength = localStorage.length;
+    for (let i = 1; i <= storageLength; i++) {
+        let task = localStorage.getItem(`listItem${i}`);
+        let taskKey = `listItem${i}`;
+        itemObject[taskKey] = `${task}`;
+        const newTask = createTaskLine(`${task}`);
+        todoList.appendChild(newTask);
+    }
+}
+
 createTaskItem();
-
-// const createNewTask = () => {
-//     addButton.addEventListener('click', () => {
-//         if (document.getElementById('newTaskInput').value !== "") {
-//             const newTask = document.getElementById('newTaskInput').value;
-//             todo.push(newTask);
-//         }
-//         todoList.innerHTML = "";
-//         for (let task of todo) {
-//             createTaskItem(task);
-//         }
-
-//     });
-// };
-
-
-
-// const trashButton = document.querySelector('.trashContainer');
-
-// const deleteTask = () => {
-//     trashButton.forEach(button =>
-//         button.addEventListener('click', () => {
-//             const element = button.parentElement("div-02");
-//         }));
-// };
+retrieveTaskItem();
