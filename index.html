@@ -13,11 +13,14 @@
         <h1>To Do List</h1>
     </header>
     <main>
-        <section class="inputContainer">
+        <section class="inputSection">
             <form action="" method="get" id="form">
                 <label for="newTaskInput">Rentrez vos tâches à effectuées:</label>
-                <input type="text" name="task" class="newTaskInput" id="newTaskInput">
-                <button type="submit" id="addButton">Ajouter</button>
+                <div class="inputContainer">
+                    <input type="text" name="task" id="newTaskInput">
+                    <button type="submit" id="addButton">Ajouter</button>
+                </div>
+                
             </form>
         </section>
         <section>
@@ -31,7 +34,7 @@
         </section>
     </main>
     <footer>
-        <h2 class="footerTitle">Made by Franck</h2>
+        <p class="footerTitle">Made by Franck</p>
     </footer>
     <script type="module" src="index.js"></script>
 </body>
