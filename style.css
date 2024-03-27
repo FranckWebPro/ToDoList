@@ -4,7 +4,7 @@
 }
 
 :root {
-    --primaryColor: lightblue;
+    --primaryColor: rgb(31, 131, 164);
     --secondaryColor: rgb(69, 69, 69);
     --textColor: rgb(240, 240, 240);
     --pagePadding: 1.5rem;
@@ -22,6 +22,10 @@ body {
     font-family: 'HindMadurai', sans-serif;
     background-color: var(--secondaryColor);
     color: var(--textColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
 }
 
 header {
@@ -32,9 +36,10 @@ header {
 }
 
 main {
+    min-height: 80vh;
     padding: var(--pagePadding);
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     justify-content: center;
     align-items: center;
     gap: var(--pagePadding);
@@ -42,6 +47,7 @@ main {
 
 section {
     width: 100%;
+    height: 100%;
     min-height: 250px;
     padding: 1rem;
     display: flex;
@@ -51,6 +57,11 @@ section {
     gap: 1rem;
     border-radius: 20px;
     box-shadow: 3px 3px 8px 3px rgb(27, 41, 50);
+}
+
+
+section:first-of-type {
+    max-height: 200px;
 }
 
 h1 {
@@ -93,9 +104,11 @@ button {
     padding: .5rem 1rem;
     border-radius: 20px;
     background-color: var(--primaryColor);
+    color: var(--textColor);
 }
 
 ul {
+    width: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -104,10 +117,11 @@ ul {
 }
 
 li {
+    width: 100%;
     line-height: 150%;
     padding: 0 1.5rem;
     display: grid;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     grid-template-columns: .5rem auto .5rem;
     gap: .5rem;
@@ -115,6 +129,8 @@ li {
 
 .trashContainer {
     height: 100%;
+    min-height: 20px;
+    min-width: 20px;
     position: relative;
     top: 0;
     right: 0;
@@ -122,6 +138,10 @@ li {
     justify-content: center;
     align-items: center;
     margin-left: 1rem;
+}
+
+.trashContainer:hover {
+    cursor: pointer;
 }
 
 .trashImg {
@@ -144,5 +164,15 @@ footer {
 
 .footerTitle {
     padding: var(--pagePadding);
-    font-size: .9rem;
+    font-size: .8rem;
+}
+
+@media screen and (min-width: 768px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .inputContainer {
+        grid-column: 1 / -1;
+    }
 }
